@@ -13,22 +13,40 @@ pw_letters= int(input("How many letters would you like in your password?\n"))
 pw_symbols = int(input(f"How many symbols would you like?\n"))
 pw_numbers = int(input(f"How many numbers would you like?\n"))
 
+# #random selection from lists
+# string_letters=[]
+# for rand_letters in range(0,pw_letters):
+#   string_letters += rd.choice(final_letters)
+# string_symbols=[]
+# for rand_symbols in range(0,pw_symbols):
+#   string_symbols += rd.choice(final_symbols)
+# string_numbers=[]
+# for rand_numbers in range(0,pw_numbers):
+#   string_numbers += rd.choice(final_numbers)
+
+# #randomization of string
+# password=""
+# final_string=string_letters+string_symbols+string_numbers
+# rd.shuffle(final_string)
+
+# for chars in final_string:
+#   password += chars
+# print(f"Your newly generated password is: {password}")
+
+#####Version 2. 
 #random selection from lists
-string_letters=[]
-for rand_letters in range(0,pw_letters):
-  string_letters += rd.choice(final_letters)
-string_symbols=[]
-for rand_symbols in range(0,pw_symbols):
-  string_symbols += rd.choice(final_symbols)
-string_numbers=[]
-for rand_numbers in range(0,pw_numbers):
-  string_numbers += rd.choice(final_numbers)
+password = []
+for letters in range(pw_letters):
+    password += random.choice(final_letters)
+for numbers in range(pw_numbers):
+    password += random.choice(final_numbers)
+for symbols in range(pw_symbols):
+    password += random.choice(final_symbols)
+random.shuffle(password)
 
-#randomization of string
-password=""
-final_string=string_letters+string_symbols+string_numbers
-rd.shuffle(final_string)
+# final randomized string
+final_string = ""
+for char in password:
+    final_string += char
 
-for chars in final_string:
-  password += chars
-print(f"Your newly generated password is: {password}")
+print(f"Your newly generated password is: {final_string}")
